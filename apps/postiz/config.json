@@ -10,7 +10,7 @@
   ],
   "description": "📨 The ultimate social media scheduling tool, with a bunch of AI 🤖.",
   "tipi_version": 2,
-  "version": "latest",
+  "version": "1.0.0",
   "source": "https://github.com/gitroomhq/postiz-app",
   "website": "https://postiz.com/",
   "exposable": true,
