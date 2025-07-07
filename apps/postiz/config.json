@@ -21,7 +21,7 @@
   ],
   "created_at": 1751855263000,
   "updated_at": 1751855263000,
-  "dynamic_config": true,
+  "dynamic": true,
   "form_fields": [
     {
       "id": "MAIN_URL",
