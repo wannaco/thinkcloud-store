@@ -4,12 +4,12 @@
   "available": true,
   "short_desc": "The ultimate social media scheduling tool, with a bunch of AI.",
   "author": "gitroomhq",
-  "port": 8382,
+  "port": 8081,
   "categories": [
     "utilities"
   ],
   "description": "Postiz: An alternative to: Buffer.com, Hypefury, Twitter Hunter, etc... Postiz offers everything you need to manage your social media posts build an audience, capture leads, and grow your business.",
-  "tipi_version": 2,
+  "tipi_version": 4,
   "version": "v1.60.0",
   "source": "https://github.com/gitroomhq/postiz-app",
   "exposable": true,
