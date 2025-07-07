@@ -1,0 +1,97 @@
+{
+  "name": "Postiz",
+  "id": "postiz",
+  "available": true,
+  "short_desc": "The ultimate social media scheduling tool, with a bunch of AI.",
+  "author": "gitroomhq",
+  "port": 5000,
+  "categories": [
+    "social"
+  ],
+  "description": "📨 The ultimate social media scheduling tool, with a bunch of AI 🤖.",
+  "tipi_version": 2,
+  "version": "latest",
+  "source": "https://github.com/gitroomhq/postiz-app",
+  "website": "https://postiz.com/",
+  "exposable": true,
+  "force_expose": true,
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ],
+  "created_at": 1751855263000,
+  "updated_at": 1751855263000,
+  "dynamic_config": true,
+  "form_fields": [
+    {
+      "id": "MAIN_URL",
+      "label": "Main URL",
+      "type": "text",
+      "required": true,
+      "description": "The main URL of your Postiz instance (e.g., https://postiz.your-domain.com)"
+    },
+    {
+      "id": "FRONTEND_URL",
+      "label": "Frontend URL",
+      "type": "text",
+      "required": true,
+      "description": "The frontend URL of your Postiz instance (e.g., https://postiz.your-domain.com)"
+    },
+    {
+      "id": "NEXT_PUBLIC_BACKEND_URL",
+      "label": "Backend URL",
+      "type": "text",
+      "required": true,
+      "description": "The backend URL of your Postiz instance (e.g., https://postiz.your-domain.com/api)"
+    },
+    {
+      "id": "JWT_SECRET",
+      "label": "JWT Secret",
+      "type": "random",
+      "required": true,
+      "description": "A random string that is unique to every install."
+    },
+    {
+      "id": "CLOUDFLARE_ACCOUNT_ID",
+      "label": "Cloudflare Account ID",
+      "type": "text",
+      "required": true,
+      "description": "Your Cloudflare Account ID."
+    },
+    {
+      "id": "CLOUDFLARE_ACCESS_KEY",
+      "label": "Cloudflare Access Key",
+      "type": "text",
+      "required": true,
+      "description": "Your Cloudflare Access Key."
+    },
+    {
+      "id": "CLOUDFLARE_SECRET_ACCESS_KEY",
+      "label": "Cloudflare Secret Access Key",
+      "type": "password",
+      "required": true,
+      "description": "Your Cloudflare Secret Access Key."
+    },
+    {
+      "id": "CLOUDFLARE_BUCKET_NAME",
+      "label": "Cloudflare Bucket Name",
+      "type": "text",
+      "required": true,
+      "description": "Your Cloudflare R2 Bucket Name."
+    },
+    {
+      "id": "CLOUDFLARE_BUCKET_URL",
+      "label": "Cloudflare Bucket URL",
+      "type": "text",
+      "required": true,
+      "description": "Your Cloudflare R2 Bucket URL."
+    },
+    {
+      "id": "CLOUDFLARE_REGION",
+      "label": "Cloudflare Region",
+      "type": "text",
+      "required": true,
+      "description": "Your Cloudflare R2 Region."
+    }
+  ]
+}

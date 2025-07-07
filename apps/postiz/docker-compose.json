@@ -1,0 +1,77 @@
+{
+  "services": [
+    {
+      "name": "postiz",
+      "image": "ghcr.io/gitroomhq/postiz-app:latest",
+      "isMain": true,
+      "internalPort": 5000,
+      "environment": {
+        "MAIN_URL": "${MAIN_URL}",
+        "FRONTEND_URL": "${FRONTEND_URL}",
+        "NEXT_PUBLIC_BACKEND_URL": "${NEXT_PUBLIC_BACKEND_URL}",
+        "JWT_SECRET": "${JWT_SECRET}",
+        "CLOUDFLARE_ACCOUNT_ID": "${CLOUDFLARE_ACCOUNT_ID}",
+        "CLOUDFLARE_ACCESS_KEY": "${CLOUDFLARE_ACCESS_KEY}",
+        "CLOUDFLARE_SECRET_ACCESS_KEY": "${CLOUDFLARE_SECRET_ACCESS_KEY}",
+        "CLOUDFLARE_BUCKET_NAME": "${CLOUDFLARE_BUCKET_NAME}",
+        "CLOUDFLARE_BUCKET_URL": "${CLOUDFLARE_BUCKET_URL}",
+        "CLOUDFLARE_REGION": "${CLOUDFLARE_REGION}",
+        "DATABASE_URL": "postgresql://postiz-user:postiz-password@postiz-postgres:5432/postiz-db-local",
+        "REDIS_URL": "redis://postiz-redis:6379",
+        "BACKEND_INTERNAL_URL": "http://localhost:3000/",
+        "IS_GENERAL": "true"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/config",
+          "containerPath": "/config/"
+        }
+      ],
+      "dependsOn": {
+        "postiz-postgres": {
+          "condition": "service_healthy"
+        },
+        "postiz-redis": {
+          "condition": "service_healthy"
+        }
+      }
+    },
+    {
+      "name": "postiz-postgres",
+      "image": "postgres:14.5",
+      "environment": {
+        "POSTGRES_PASSWORD": "postiz-password",
+        "POSTGRES_USER": "postiz-user",
+        "POSTGRES_DB": "postiz-db-local"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/postgres-data",
+          "containerPath": "/var/lib/postgresql/data"
+        }
+      ],
+      "healthCheck": {
+        "test": "pg_isready -U postiz-user -d postiz-db-local",
+        "interval": "10s",
+        "timeout": "3s",
+        "retries": 3
+      }
+    },
+    {
+      "name": "postiz-redis",
+      "image": "redis:7.2",
+      "healthCheck": {
+        "test": "redis-cli ping",
+        "interval": "10s",
+        "timeout": "3s",
+        "retries": 3
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/redis-data",
+          "containerPath": "/data"
+        }
+      ]
+    }
+  ]
+}
