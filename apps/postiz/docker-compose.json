@@ -51,7 +51,10 @@
         }
       ],
       "healthCheck": {
-        "test": "pg_isready -U postiz-user -d postiz-db-local",
+        "test": [
+          "CMD-SHELL",
+          "pg_isready -U postiz-user -d postiz-db-local"
+        ],
         "interval": "10s",
         "timeout": "3s",
         "retries": 3
@@ -61,7 +64,10 @@
       "name": "postiz-redis",
       "image": "redis:7.2",
       "healthCheck": {
-        "test": "redis-cli ping",
+        "test": [
+          "CMD-SHELL",
+          "redis-cli ping"
+        ],
         "interval": "10s",
         "timeout": "3s",
         "retries": 3
