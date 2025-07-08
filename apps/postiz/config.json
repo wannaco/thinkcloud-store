@@ -4,7 +4,7 @@
   "available": true,
   "short_desc": "The ultimate social media scheduling tool, with a bunch of AI.",
   "author": "gitroomhq",
-  "port": 8282,
+  "port": 8283,
   "categories": [
     "social"
   ],
