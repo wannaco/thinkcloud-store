@@ -4,7 +4,7 @@
       "name": "postiz",
       "image": "ghcr.io/gitroomhq/postiz-app:latest",
       "isMain": true,
-      "internalPort": 5000,
+      "internalPort": 3000,
       "environment": {
         "MAIN_URL": "${MAIN_URL}",
         "FRONTEND_URL": "${FRONTEND_URL}",
@@ -18,7 +18,7 @@
         "CLOUDFLARE_REGION": "${CLOUDFLARE_REGION}",
         "DATABASE_URL": "postgresql://postiz-user:postiz-password@postiz-postgres:5432/postiz-db-local",
         "REDIS_URL": "redis://postiz-redis:6379",
-        "BACKEND_INTERNAL_URL": "http://localhost:5000/",
+        "BACKEND_INTERNAL_URL": "http://localhost:3000/",
         "IS_GENERAL": "true"
       },
       "volumes": [
