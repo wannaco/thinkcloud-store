@@ -25,10 +25,10 @@
     {
       "env_variable": "JWT_SECRET",
       "label": "random string that is unique to every install",
-      "max": "1024",
-      "min": "1",
+      "max": 1024,
+      "min": 1,
       "required": true,
-      "type": "password"
+      "type": "random"
     }
   ]
 }

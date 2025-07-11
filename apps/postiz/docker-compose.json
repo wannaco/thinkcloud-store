@@ -20,7 +20,6 @@
         "UPLOAD_DIRECTORY": "${ROOT_FOLDER_HOST}/uploads",
         "NEXT_PUBLIC_UPLOAD_DIRECTORY": "/uploads"
       },
-      "internalPort": 5000,
       "volumes": [
         {
           "hostPath": "${ROOT_FOLDER_HOST}/postiz-config",
