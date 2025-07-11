@@ -28,7 +28,7 @@
       "max": 1024,
       "min": 1,
       "required": true,
-      "type": "random"
+      "type": "password"
     }
   ]
 }
