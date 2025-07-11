@@ -1,14 +1,15 @@
 {
+  "$schema": "https://raw.githubusercontent.com/runtipi/runtipi-appstore/refs/heads/master/apps/app-info-schema.json",
   "name": "Postiz",
   "id": "postiz",
   "available": true,
   "short_desc": "The ultimate social media scheduling tool, with a bunch of AI.",
   "author": "gitroomhq",
-  "port": 8081,
+  "port": 8283,
   "categories": [
-    "utilities"
+    "social"
   ],
-  "description": "Postiz: An alternative to: Buffer.com, Hypefury, Twitter Hunter, etc... Postiz offers everything you need to manage your social media posts build an audience, capture leads, and grow your business.",
+  "description": "The ultimate social media scheduling tool, with a bunch of AI.",
   "tipi_version": 4,
   "version": "v1.60.0",
   "source": "https://github.com/gitroomhq/postiz-app",
