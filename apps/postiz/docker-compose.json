@@ -3,28 +3,35 @@
     {
       "name": "postiz",
       "image": "ghcr.io/gitroomhq/postiz-app:latest",
-      "isMain": true,
-      "internalPort": 5000,
       "environment": {
-        "MAIN_URL": "${MAIN_URL}",
-        "FRONTEND_URL": "${FRONTEND_URL}",
-        "NEXT_PUBLIC_BACKEND_URL": "${NEXT_PUBLIC_BACKEND_URL}",
+        "MAIN_URL": "https://{{APP_DOMAIN}}",
+        "FRONTEND_URL": "https://{{APP_DOMAIN}}",
+        "NEXT_PUBLIC_BACKEND_URL": "https://postiz.your-server.com/api",
         "JWT_SECRET": "${JWT_SECRET}",
-        "CLOUDFLARE_ACCOUNT_ID": "${CLOUDFLARE_ACCOUNT_ID}",
-        "CLOUDFLARE_ACCESS_KEY": "${CLOUDFLARE_ACCESS_KEY}",
-        "CLOUDFLARE_SECRET_ACCESS_KEY": "${CLOUDFLARE_SECRET_ACCESS_KEY}",
-        "CLOUDFLARE_BUCKET_NAME": "${CLOUDFLARE_BUCKET_NAME}",
-        "CLOUDFLARE_BUCKET_URL": "${CLOUDFLARE_BUCKET_URL}",
-        "CLOUDFLARE_REGION": "${CLOUDFLARE_REGION}",
         "DATABASE_URL": "postgresql://postiz-user:postiz-password@postiz-postgres:5432/postiz-db-local",
         "REDIS_URL": "redis://postiz-redis:6379",
-        "BACKEND_INTERNAL_URL": "http://localhost:3000/",
-        "IS_GENERAL": "true"
+        "BACKEND_INTERNAL_URL": "http://localhost:3000",
+        "IS_GENERAL": "true",
+        "DISABLE_REGISTRATION": "false",
+        "STORAGE_PROVIDER": "local",
+        "UPLOAD_DIRECTORY": "${ROOT_FOLDER_HOST}/uploads",
+        "NEXT_PUBLIC_UPLOAD_DIRECTORY": "/uploads"
       },
+      "internalPort": 5000,
       "volumes": [
         {
-          "hostPath": "${APP_DATA_DIR}/config",
-          "containerPath": "/config/"
+          "hostPath": "${ROOT_FOLDER_HOST}/postiz-config",
+          "containerPath": "/config/",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        },
+        {
+          "hostPath": "${ROOT_FOLDER_HOST}/postiz-uploads",
+          "containerPath": "/uploads/",
+          "readOnly": false,
+          "shared": false,
+          "private": false
         }
       ],
       "dependsOn": {
@@ -38,7 +45,7 @@
     },
     {
       "name": "postiz-postgres",
-      "image": "postgres:14.5",
+      "image": "postgres:17-alpine",
       "environment": {
         "POSTGRES_PASSWORD": "postiz-password",
         "POSTGRES_USER": "postiz-user",
@@ -46,8 +53,11 @@
       },
       "volumes": [
         {
-          "hostPath": "${APP_DATA_DIR}/postgres-data",
-          "containerPath": "/var/lib/postgresql/data"
+          "hostPath": "${ROOT_FOLDER_HOST}/postgres-volume",
+          "containerPath": "/var/lib/postgresql/data",
+          "readOnly": false,
+          "shared": false,
+          "private": false
         }
       ],
       "healthCheck": {
@@ -60,18 +70,21 @@
     {
       "name": "postiz-redis",
       "image": "redis:7.2",
+      "volumes": [
+        {
+          "hostPath": "${ROOT_FOLDER_HOST}/postiz-redis-data",
+          "containerPath": "/data",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        }
+      ],
       "healthCheck": {
         "test": "redis-cli ping",
         "interval": "10s",
         "timeout": "3s",
         "retries": 3
-      },
-      "volumes": [
-        {
-          "hostPath": "${APP_DATA_DIR}/redis-data",
-          "containerPath": "/data"
-        }
-      ]
+      }
     }
   ]
 }

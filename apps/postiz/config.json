@@ -20,5 +20,14 @@
   "created_at": 1745082405284,
   "updated_at": 1745674974072,
   "dynamic_config": true,
-  "form_fields": []
+  "form_fields": [
+    {
+      "env_variable": "JWT_SECRET",
+      "label": "random string that is unique to every install",
+      "max": "1024",
+      "min": "1",
+      "required": true,
+      "type": "password"
+    }
+  ]
 }
