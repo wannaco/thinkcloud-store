@@ -18,8 +18,7 @@
         "DISABLE_REGISTRATION": "false",
         "STORAGE_PROVIDER": "local",
         "UPLOAD_DIRECTORY": "${APP_DATA_DIR}/uploads",
-        "NEXT_PUBLIC_UPLOAD_DIRECTORY": "${APP_DATA_DIR}/uploads",
-        "APP_PROTOCOL": "https"
+        "NEXT_PUBLIC_UPLOAD_DIRECTORY": "${APP_DATA_DIR}/uploads"
       },
       "volumes": [
         {
