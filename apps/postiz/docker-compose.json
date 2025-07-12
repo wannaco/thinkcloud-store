@@ -7,7 +7,7 @@
       "isMain": true,
       "internalPort": 3000,
       "environment": {
-        "MAIN_URL": "https://{{APP_DOMAIN}}",
+        "MAIN_URL": "'${APP_PROTOCOL:-http}://{{APP_DOMAIN}}'",
         "FRONTEND_URL": "https://{{APP_DOMAIN}}",
         "NEXT_PUBLIC_BACKEND_URL": "https://{{APP_DOMAIN}}/api",
         "JWT_SECRET": "${JWT_SECRET}",
@@ -17,19 +17,19 @@
         "IS_GENERAL": "true",
         "DISABLE_REGISTRATION": "false",
         "STORAGE_PROVIDER": "local",
-        "UPLOAD_DIRECTORY": "${ROOT_FOLDER_HOST}/uploads",
-        "NEXT_PUBLIC_UPLOAD_DIRECTORY": "${ROOT_FOLDER_HOST}/uploads"
+        "UPLOAD_DIRECTORY": "${APP_DATA_DIR}/uploads",
+        "NEXT_PUBLIC_UPLOAD_DIRECTORY": "${APP_DATA_DIR}/uploads"
       },
       "volumes": [
         {
-          "hostPath": "${ROOT_FOLDER_HOST}/postiz-config",
+          "hostPath": "${APP_DATA_DIR}/postiz-config",
           "containerPath": "/config/",
           "readOnly": false,
           "shared": false,
           "private": false
         },
         {
-          "hostPath": "${ROOT_FOLDER_HOST}/postiz-uploads",
+          "hostPath": "${APP_DATA_DIR}/postiz-uploads",
           "containerPath": "/uploads/",
           "readOnly": false,
           "shared": false,
@@ -55,7 +55,7 @@
       },
       "volumes": [
         {
-          "hostPath": "${ROOT_FOLDER_HOST}/postgres-volume",
+          "hostPath": "${APP_DATA_DIR}/postgres-volume",
           "containerPath": "/var/lib/postgresql/data",
           "readOnly": false,
           "shared": false,
@@ -74,7 +74,7 @@
       "image": "redis:7.2",
       "volumes": [
         {
-          "hostPath": "${ROOT_FOLDER_HOST}/postiz-redis-data",
+          "hostPath": "${APP_DATA_DIR}/postiz-redis-data",
           "containerPath": "/data",
           "readOnly": false,
           "shared": false,
