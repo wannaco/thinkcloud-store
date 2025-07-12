@@ -7,7 +7,7 @@
       "isMain": true,
       "internalPort": 3000,
       "environment": {
-        "MAIN_URL": "'${APP_PROTOCOL:-http}://{{APP_DOMAIN}}'",
+        "MAIN_URL": "${APP_PROTOCOL:-http}://{{APP_DOMAIN}}",
         "FRONTEND_URL": "${APP_PROTOCOL:-http}://{{APP_DOMAIN}}",
         "NEXT_PUBLIC_BACKEND_URL": "${APP_PROTOCOL:-http}://{{APP_DOMAIN}}/api",
         "JWT_SECRET": "${JWT_SECRET}",
