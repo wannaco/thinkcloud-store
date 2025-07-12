@@ -5,7 +5,7 @@
       "name": "postiz",
       "image": "ghcr.io/gitroomhq/postiz-app:latest",
       "isMain": true,
-      "internalPort": 5000,
+      "internalPort": 3000,
       "environment": {
         "MAIN_URL": "'${APP_PROTOCOL:-http}://{{APP_DOMAIN}}'",
         "FRONTEND_URL": "${APP_PROTOCOL:-http}://{{APP_DOMAIN}}",
@@ -18,7 +18,8 @@
         "DISABLE_REGISTRATION": "false",
         "STORAGE_PROVIDER": "local",
         "UPLOAD_DIRECTORY": "${APP_DATA_DIR}/uploads",
-        "NEXT_PUBLIC_UPLOAD_DIRECTORY": "${APP_DATA_DIR}/uploads"
+        "NEXT_PUBLIC_UPLOAD_DIRECTORY": "${APP_DATA_DIR}/uploads",
+        "APP_PROTOCOL": "https"
       },
       "volumes": [
         {
@@ -43,6 +44,12 @@
         "postiz-redis": {
           "condition": "service_healthy"
         }
+      },
+      "healthCheck": {
+        "test": "nc -z localhost 3000 || exit 1",
+        "interval": "10s",
+        "timeout": "5s",
+        "retries": 5
       }
     },
     {
