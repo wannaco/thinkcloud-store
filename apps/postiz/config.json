@@ -24,7 +24,7 @@
   "form_fields": [
     {
       "env_variable": "JWT_SECRET",
-      "label": "random string that is unique to every install",
+      "label": "JWT Secret (random unique string)",
       "max": 1024,
       "min": 1,
       "required": true,
