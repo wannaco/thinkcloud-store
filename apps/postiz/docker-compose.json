@@ -43,13 +43,7 @@
         "postiz-redis": {
           "condition": "service_healthy"
         }
-      },
-      "healthCheck": {
-        "test": "nc -z localhost 5000 || exit 1",
-        "interval": "10s",
-        "timeout": "15s",
-        "retries": 5
-        }
+      }
     },
     {
       "name": "postiz-postgres",
