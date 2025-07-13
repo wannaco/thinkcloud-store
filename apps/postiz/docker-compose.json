@@ -5,7 +5,7 @@
       "name": "postiz",
       "image": "ghcr.io/gitroomhq/postiz-app:latest",
       "isMain": true,
-      "internalPort": 3000,
+      "internalPort": 5000,
       "environment": {
         "MAIN_URL": "${APP_PROTOCOL:-http}://{{APP_DOMAIN}}",
         "FRONTEND_URL": "${APP_PROTOCOL:-http}://{{APP_DOMAIN}}",
@@ -45,12 +45,11 @@
         }
       },
       "healthCheck": {
-        "test": "nc -z localhost 3000 || exit 1",
+        "test": "nc -z localhost 5000 || exit 1",
         "interval": "10s",
         "timeout": "15s",
-        "retries": 5,
-        "start_period": "60s"
-      }
+        "retries": 5
+        }
     },
     {
       "name": "postiz-postgres",
