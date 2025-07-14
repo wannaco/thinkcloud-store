@@ -17,8 +17,8 @@
         "IS_GENERAL": "true",
         "DISABLE_REGISTRATION": "false",
         "STORAGE_PROVIDER": "local",
-        "UPLOAD_DIRECTORY": "${APP_DATA_DIR}/uploads",
-        "NEXT_PUBLIC_UPLOAD_DIRECTORY": "${APP_DATA_DIR}/uploads"
+        "UPLOAD_DIRECTORY": "/uploads",
+        "NEXT_PUBLIC_UPLOAD_DIRECTORY": "/uploads"
       },
       "volumes": [
         {
