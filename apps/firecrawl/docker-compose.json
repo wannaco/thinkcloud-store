@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "firecrawl-backend",
-      "image": "mendable/firecrawl:latest",
+      "image": "ghcr.io/mendable/firecrawl:latest",
       "isMain": false,
       "internalPort": "3000",
       "environment": {
