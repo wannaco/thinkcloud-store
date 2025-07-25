@@ -2,6 +2,7 @@
   "services": [
     {
       "name": "firecrawl-backend",
+      "image": "ghcr.io/mendable/firecrawl:latest",
       "build": "./app",
       "isMain": false,
       "internalPort": "3000",
