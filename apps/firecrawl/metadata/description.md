@@ -1,0 +1,1 @@
+FireCrawl is an all-in-one platform to crawl and scrape any website. It can be used as a service or a library. It can crawl millions of pages, and scrape them in a structured, clean format.

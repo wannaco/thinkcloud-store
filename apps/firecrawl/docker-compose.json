@@ -1,0 +1,27 @@
+{
+  "services": [
+    {
+      "name": "firecrawl-backend",
+      "image": "mendable/firecrawl:latest",
+      "isMain": false,
+      "internalPort": "3000",
+      "environment": {
+        "PORT": "3000",
+        "MODEL_NAME": "${MODEL_NAME}",
+        "OLLAMA_BASE_URL": "${OLLAMA_BASE_URL}",
+        "SEARXNG_ENDPOINT": "${SEARXNG_ENDPOINT}",
+        "OPENAI_BASE_URL": "${OPENAI_BASE_URL}",
+        "OPENAI_API_KEY": "${OPENAI_API_KEY}"
+      }
+    },
+    {
+      "name": "firecrawl-ui",
+      "image": "obeoneorg/firecrawl-ui:latest",
+      "isMain": true,
+      "internalPort": "8080",
+      "environment": {
+        "FIRECRAWL_API_URL": "http://${APP_ID}-firecrawl-backend:3000"
+      }
+    }
+  ]
+}
