@@ -21,14 +21,6 @@
   "created_at": 1746731782218,
   "updated_at": 1753142747779,
   "dynamic_config": true,
-  "form_fields": [
-    {
-      "type": "url",
-      "label": "Pocket ID App URL",
-      "placeholder": "https://pocket-id.example.com",
-      "required": true,
-      "env_variable": "POCKET_ID_APP_URL"
-    }
-  ],
+  "form_fields": [],
   "$schema": "../app-info-schema.json"
 }
