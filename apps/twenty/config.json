@@ -6,10 +6,10 @@
   "author": "twentyhq",
   "port": 8383,
   "categories": [
-    "crm"
+    "utilities"
   ],
   "description": "Twenty is a modern, open-source CRM alternative to Salesforce—fully customizable, affordable, and powered by the community.",
-  "tipi_version": 14,
+  "tipi_version": 1,
   "version": "latest",
   "source": "https://github.com/twentyhq/twenty",
   "exposable": true,
@@ -24,23 +24,26 @@
     {
       "id": "APP_SECRET",
       "label": "Application Secret",
-      "type": "string",
+      "type": "text",
       "required": true,
-      "description": "A random string used to secure your application."
+      "description": "A random string used to secure your application.",
+      "env_variable": "APP_SECRET"
     },
     {
       "id": "PG_DATABASE_USER",
       "label": "Postgres User",
-      "type": "string",
+      "type": "text",
       "required": false,
-      "description": "The username for the Postgres database."
+      "description": "The username for the Postgres database.",
+      "env_variable": "PG_DATABASE_USER"
     },
     {
       "id": "PG_DATABASE_PASSWORD",
       "label": "Postgres Password",
-      "type": "string",
+      "type": "text",
       "required": false,
-      "description": "The password for the Postgres database."
+      "description": "The password for the Postgres database.",
+      "env_variable": "PG_DATABASE_PASSWORD"
     }
   ],
   "$schema": "../app-info-schema.json"
