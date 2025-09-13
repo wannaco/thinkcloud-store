@@ -9,7 +9,7 @@
     "crm"
   ],
   "description": "Twenty is a modern, open-source CRM alternative to Salesforce—fully customizable, affordable, and powered by the community.",
-  "tipi_version": 1,
+  "tipi_version": 14,
   "version": "latest",
   "source": "https://github.com/twentyhq/twenty",
   "exposable": true,
@@ -42,5 +42,6 @@
       "required": false,
       "description": "The password for the Postgres database."
     }
-  ]
+  ],
+  "$schema": "../app-info-schema.json"
 }
