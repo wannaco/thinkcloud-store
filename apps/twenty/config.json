@@ -1,0 +1,46 @@
+{
+  "name": "Twenty",
+  "id": "twenty",
+  "available": true,
+  "short_desc": "A modern alternative to Salesforce, powered by the community.",
+  "author": "twentyhq",
+  "port": 8383,
+  "categories": [
+    "crm"
+  ],
+  "description": "Twenty is a modern, open-source CRM alternative to Salesforce—fully customizable, affordable, and powered by the community.",
+  "tipi_version": 1,
+  "version": "latest",
+  "source": "https://github.com/twentyhq/twenty",
+  "exposable": true,
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ],
+  "created_at": 1745082405284,
+  "updated_at": 1745674974072,
+  "dynamic_config": true,
+  "form_fields": [
+    {
+      "id": "APP_SECRET",
+      "label": "Application Secret",
+      "type": "string",
+      "required": true,
+      "description": "A random string used to secure your application."
+    },
+    {
+      "id": "PG_DATABASE_USER",
+      "label": "Postgres User",
+      "type": "string",
+      "required": false,
+      "description": "The username for the Postgres database."
+    },
+    {
+      "id": "PG_DATABASE_PASSWORD",
+      "label": "Postgres Password",
+      "type": "string",
+      "required": false,
+      "description": "The password for the Postgres database."
+    }
+  ]
+}
