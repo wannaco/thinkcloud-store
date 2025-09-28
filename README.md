@@ -2,8 +2,7 @@
 
 [ThinkCloud](https://ThinkCloud.dev)
 
-This repository serves as a custom app store for the Runtipi platform.
-## Apps available (3)
+This repository helps deploy useful tools for small and medium size Businesses
 
 | Name                                                                         | Description                                                                                                                                                         | Port      | Dynamic (1) |
 | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------------- |
