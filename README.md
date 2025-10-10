@@ -2,7 +2,7 @@
 
 [ThinkCloud](https://ThinkCloud.dev)
 
-## Apps available (3)
+This repository helps deploy useful tools for small and medium size Businesses
 
 | Name                                                                         | Description                                                                                                                                                         | Port      | Dynamic (1) |
 | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------------- |
