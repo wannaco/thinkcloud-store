@@ -6,7 +6,6 @@
   "author": "Amruth Pillai",
   "port": 3000,
   "categories": [
-    "productivity",
     "utilities"
   ],
   "description": "Reactive Resume is a free and open source resume builder that allows you to create, update, and manage your resume with ease.",
