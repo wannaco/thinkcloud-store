@@ -67,7 +67,7 @@
         "STORAGE_URL": "http://minio:9000/default",
         "CHROME_TOKEN": "chrome_token",
         "CHROME_URL": "ws://chrome:3000",
-        "DATABASE_URL": "${APP_CONFIG_DATABASE_URL}",
+        "DATABASE_URL": "postgresql://postgres:postgres@postgres:5432/postgres",
         "ACCESS_TOKEN_SECRET": "${APP_CONFIG_ACCESS_TOKEN_SECRET}",
         "REFRESH_TOKEN_SECRET": "${APP_CONFIG_REFRESH_TOKEN_SECRET}",
         "MAIL_FROM": "${APP_CONFIG_MAIL_FROM}",
@@ -93,5 +93,9 @@
         }
       }
     }
-  ]
+  ],
+  "volumes": {
+    "postgres_data": null,
+    "minio_data": null
+  }
 }
