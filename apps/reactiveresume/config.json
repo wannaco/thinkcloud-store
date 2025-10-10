@@ -23,14 +23,6 @@
   "dynamic_config": true,
   "form_fields": [
     {
-      "env_variable": "DATABASE_URL",
-      "label": "Database URL",
-      "min": 1,
-      "required": true,
-      "type": "text",
-      "default": "postgresql://postgres:postgres@postgres:5432/postgres"
-    },
-    {
       "env_variable": "ACCESS_TOKEN_SECRET",
       "label": "Access Token Secret (random unique string)",
       "min": 1,
