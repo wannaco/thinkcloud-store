@@ -1,0 +1,74 @@
+{
+  "name": "Reactive Resume",
+  "id": "reactive-resume",
+  "available": true,
+  "short_desc": "A free and open source resume builder.",
+  "author": "Amruth Pillai",
+  "port": 3000,
+  "categories": [
+    "productivity",
+    "utilities"
+  ],
+  "description": "Reactive Resume is a free and open source resume builder that allows you to create, update, and manage your resume with ease.",
+  "tipi_version": 14,
+  "version": "v4.0.0",
+  "source": "https://github.com/AmruthPillai/Reactive-Resume",
+  "website": "https://rxresu.me",
+  "exposable": true,
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ],
+  "created_at": 1753142747779,
+  "updated_at": 1753142747779,
+  "dynamic_config": true,
+  "form_fields": [
+    {
+      "env_variable": "DATABASE_URL",
+      "label": "Database URL",
+      "min": 1,
+      "required": true,
+      "type": "text",
+      "default": "postgresql://postgres:postgres@postgres:5432/postgres"
+    },
+    {
+      "env_variable": "ACCESS_TOKEN_SECRET",
+      "label": "Access Token Secret (random unique string)",
+      "min": 1,
+      "required": true,
+      "type": "password"
+    },
+    {
+      "env_variable": "REFRESH_TOKEN_SECRET",
+      "label": "Refresh Token Secret (random unique string)",
+      "min": 1,
+      "required": true,
+      "type": "password"
+    },
+    {
+      "env_variable": "MAIL_FROM",
+      "label": "Mail From Address",
+      "min": 1,
+      "required": false,
+      "type": "text",
+      "default": "noreply@localhost"
+    },
+    {
+      "env_variable": "STORAGE_ACCESS_KEY",
+      "label": "Storage Access Key",
+      "min": 1,
+      "required": false,
+      "type": "text",
+      "default": "minioadmin"
+    },
+    {
+      "env_variable": "STORAGE_SECRET_KEY",
+      "label": "Storage Secret Key",
+      "min": 1,
+      "required": false,
+      "type": "password",
+      "default": "minioadmin"
+    }
+  ],
+  "$schema": "../app-info-schema.json"
+}
