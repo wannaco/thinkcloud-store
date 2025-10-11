@@ -10,7 +10,7 @@
       },
       "volumes": [
         {
-          "hostPath": "postgres_data",
+          "hostPath": "${APP_DATA_DIR}/postgres_data",
           "containerPath": "/var/lib/postgresql/data",
           "readOnly": false,
           "shared": false,
@@ -35,7 +35,7 @@
       "internalPort": 9000,
       "volumes": [
         {
-          "hostPath": "minio_data",
+          "hostPath": "${APP_DATA_DIR}/minio_data",
           "containerPath": "/data",
           "readOnly": false,
           "shared": false,
@@ -59,7 +59,7 @@
     },
     {
       "name": "app",
-      "image": "amruthpillai/reactive-resume:latest",
+      "image": "amruthpillai/reactive-resume:v4.0.0",
       "environment": {
         "PORT": 3000,
         "NODE_ENV": "production",
@@ -93,9 +93,5 @@
         }
       }
     }
-  ],
-  "volumes": {
-    "postgres_data": null,
-    "minio_data": null
-  }
+  ]
 }

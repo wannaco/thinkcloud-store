@@ -1,6 +1,6 @@
 {
   "name": "Reactive Resume",
-  "id": "reactive-resume",
+  "id": "reactiveresumeapp",
   "available": true,
   "short_desc": "A free and open source resume builder.",
   "author": "Amruth Pillai",
@@ -9,8 +9,8 @@
     "utilities"
   ],
   "description": "Reactive Resume is a free and open source resume builder that allows you to create, update, and manage your resume with ease.",
-  "tipi_version": 14,
-  "version": "v4.0.0",
+  "tipi_version": 16,
+  "version": "4.0.0",
   "source": "https://github.com/AmruthPillai/Reactive-Resume",
   "website": "https://rxresu.me",
   "exposable": true,
