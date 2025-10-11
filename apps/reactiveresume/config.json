@@ -9,7 +9,7 @@
     "utilities"
   ],
   "description": "Reactive Resume is a free and open source resume builder that allows you to create, update, and manage your resume with ease.",
-  "tipi_version": 21,
+  "tipi_version": 22,
   "version": "4.0.0",
   "source": "https://github.com/AmruthPillai/Reactive-Resume",
   "website": "https://rxresu.me",
@@ -42,7 +42,7 @@
       "min": 1,
       "required": true,
       "type": "text",
-      "default": "noreply@localhost"
+      "default": "noreply@example.com"
     },
     {
       "env_variable": "STORAGE_ACCESS_KEY",
