@@ -45,14 +45,6 @@
       "default": "noreply@example.com"
     },
     {
-      "env_variable": "STORAGE_ACCESS_KEY",
-      "label": "Storage Access Key",
-      "min": 1,
-      "required": false,
-      "type": "text",
-      "default": "minioadmin"
-    },
-    {
       "env_variable": "MINIO_ROOT_USER",
       "label": "MinIO Root User",
       "min": 1,
@@ -65,14 +57,6 @@
       "label": "MinIO Root Password",
       "min": 1,
       "required": true,
-      "type": "password",
-      "default": "minioadmin"
-    },
-    {
-      "env_variable": "STORAGE_SECRET_KEY",
-      "label": "Storage Secret Key",
-      "min": 1,
-      "required": false,
       "type": "password",
       "default": "minioadmin"
     }
