@@ -71,7 +71,7 @@
         "PORT": 3000,
         "NODE_ENV": "production",
         "PUBLIC_URL": "https://${APP_DOMAIN}",
-        "STORAGE_URL": "http://minio:9000/default",
+        "STORAGE_URL": "https://${APP_DOMAIN}/default",
         "CHROME_TOKEN": "chrome_token",
         "CHROME_URL": "ws://chrome:3000",
         "DATABASE_URL": "postgresql://postgres:postgres@postgres:5432/postgres",
