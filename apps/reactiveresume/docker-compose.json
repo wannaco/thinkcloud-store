@@ -41,7 +41,14 @@
           "shared": false,
           "private": false
         }
-      ]
+      ],
+      "healthCheck": {
+        "test": "curl --fail http://localhost:9000/minio/health/live || exit 1",
+        "interval": "10s",
+        "timeout": "5s",
+        "retries": 5,
+        "start_period": "20s"
+      }
     },
     {
       "name": "chrome",
@@ -83,15 +90,16 @@
       "internalPort": 3000,
       "dependsOn": {
         "postgres": {
-          "condition": "service_started"
+          "condition": "service_healthy"
         },
         "minio": {
-          "condition": "service_started"
+          "condition": "service_healthy"
         },
         "chrome": {
           "condition": "service_started"
         }
-      }
+      },
+      "isMain": true
     }
   ]
 }
