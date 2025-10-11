@@ -53,6 +53,22 @@
       "default": "minioadmin"
     },
     {
+      "env_variable": "MINIO_ROOT_USER",
+      "label": "MinIO Root User",
+      "min": 1,
+      "required": true,
+      "type": "text",
+      "default": "minioadmin"
+    },
+    {
+      "env_variable": "MINIO_ROOT_PASSWORD",
+      "label": "MinIO Root Password",
+      "min": 1,
+      "required": true,
+      "type": "password",
+      "default": "minioadmin"
+    },
+    {
       "env_variable": "STORAGE_SECRET_KEY",
       "label": "Storage Secret Key",
       "min": 1,

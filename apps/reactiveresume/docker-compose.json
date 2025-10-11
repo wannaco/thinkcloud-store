@@ -29,8 +29,8 @@
       "image": "minio/minio:latest",
       "command": "server /data",
       "environment": {
-        "MINIO_ROOT_USER": "minioadmin",
-        "MINIO_ROOT_PASSWORD": "minioadmin"
+        "MINIO_ROOT_USER": "${MINIO_ROOT_USER}",
+        "MINIO_ROOT_PASSWORD": "${MINIO_ROOT_PASSWORD}"
       },
       "internalPort": 9000,
       "volumes": [
