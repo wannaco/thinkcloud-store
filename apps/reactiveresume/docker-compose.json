@@ -10,7 +10,7 @@
       },
       "volumes": [
         {
-          "hostPath": "${APP_DATA_DIR}/data/postgres",
+          "hostPath": "${APP_DATA_DIR}/postgres",
           "containerPath": "/var/lib/postgresql/data",
           "readOnly": false,
           "shared": false,
@@ -35,7 +35,7 @@
       "internalPort": 9000,
       "volumes": [
         {
-          "hostPath": "${APP_DATA_DIR}/data/minio",
+          "hostPath": "${APP_DATA_DIR}/minio",
           "containerPath": "/data",
           "readOnly": false,
           "shared": false,
