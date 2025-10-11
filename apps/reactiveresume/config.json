@@ -40,7 +40,7 @@
       "env_variable": "MAIL_FROM",
       "label": "Mail From Address",
       "min": 1,
-      "required": false,
+      "required": true,
       "type": "text",
       "default": "noreply@localhost"
     },
