@@ -79,7 +79,7 @@
         "ACCESS_TOKEN_SECRET": "${ACCESS_TOKEN_SECRET}",
         "REFRESH_TOKEN_SECRET": "${REFRESH_TOKEN_SECRET}",
         "MAIL_FROM": "${MAIL_FROM}",
-        "STORAGE_ENDPOINT": "${APP_PROTOCOL}://${APP_DOMAIN}/default",
+        "STORAGE_ENDPOINT": "${RUNTIPI_APP_ID}-minio",
         "STORAGE_PORT": 9000,
         "STORAGE_REGION": "us-east-1",
         "STORAGE_BUCKET": "default",
