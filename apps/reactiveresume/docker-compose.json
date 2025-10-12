@@ -43,7 +43,7 @@
         }
       ],
       "healthCheck": {
-        "test": "curl --fail http://localhost:9000/minio/health/live || exit 1",
+        "test": "curl --fail ${APP_PROTOCOL}://localhost:9000/minio/health/live || exit 1",
         "interval": "10s",
         "timeout": "5s",
         "retries": 5,
@@ -70,8 +70,8 @@
       "environment": {
         "PORT": 3000,
         "NODE_ENV": "production",
-        "PUBLIC_URL": "https://${APP_DOMAIN}",
-        "STORAGE_URL": "https://${APP_DOMAIN}/default",
+        "PUBLIC_URL": "${APP_PROTOCOL}://${APP_DOMAIN}",
+        "STORAGE_URL": "${APP_PROTOCOL}://${APP_DOMAIN}/default",
         "CHROME_TOKEN": "chrome_token",
         "CHROME_URL": "ws://chrome:3000",
         "DATABASE_URL": "postgresql://postgres:postgres@postgres:5432/postgres",
@@ -101,5 +101,17 @@
       },
       "isMain": true
     }
-  ]
+  ],
+ "extraLabels": {
+    "traefik.http.services.{{RUNTIPI_APP_ID}}-minio.loadbalancer.server.port": "9000",
+    "traefik.http.routers.{{RUNTIPI_APP_ID}}-minio.rule": "Host(`${APP_DOMAIN}`) && PathPrefix(`/default`)",
+    "traefik.http.routers.{{RUNTIPI_APP_ID}}-minio.entrypoints": "websecure",
+    "traefik.http.routers.{{RUNTIPI_APP_ID}}-minio.tls.certresolver": "myresolver",
+    "traefik.http.routers.{{RUNTIPI_APP_ID}}-minio.priority": "20",
+
+    "traefik.http.routers.{{RUNTIPI_APP_ID}}-minio-insecure.rule": "Host(`${APP_DOMAIN}`) && PathPrefix(`/default`)",
+    "traefik.http.routers.{{RUNTIPI_APP_ID}}-minio-insecure.entrypoints": "web",
+    "traefik.http.routers.{{RUNTIPI_APP_ID}}-minio-insecure.middlewares": "{{RUNTIPI_APP_ID}}-minio-redirect",
+    "traefik.http.middlewares.{{RUNTIPI_APP_ID}}-minio-redirect.redirectscheme.scheme": "https"
+  }
 }
