@@ -102,14 +102,22 @@
       "isMain": true
     }
   ],
- "extraLabels": {
+  "extraLabels": {
     "traefik.http.services.{{RUNTIPI_APP_ID}}-minio.loadbalancer.server.port": "9000",
-    "traefik.http.routers.{{RUNTIPI_APP_ID}}-minio.rule": "Host(`${APP_DOMAIN}`) && PathPrefix(`/default`)",
+    "traefik.http.services.{{RUNTIPI_APP_ID}}-minio.loadbalancer.server.scheme": "http",
+    "traefik.http.routers.{{RUNTIPI_APP_ID}}-minio.rule": "Host(`${APP_DOMAIN}`) && (Path(`/default`) || PathPrefix(`/default/`))",
+    "traefik.http.routers.{{RUNTIPI_APP_ID}}-minio.service": "{{RUNTIPI_APP_ID}}-minio",
     "traefik.http.routers.{{RUNTIPI_APP_ID}}-minio.entrypoints": "websecure",
     "traefik.http.routers.{{RUNTIPI_APP_ID}}-minio.tls.certresolver": "myresolver",
-    "traefik.http.routers.{{RUNTIPI_APP_ID}}-minio.priority": "20",
+    "traefik.http.routers.{{RUNTIPI_APP_ID}}-minio.priority": "10000",
 
-    "traefik.http.routers.{{RUNTIPI_APP_ID}}-minio-insecure.rule": "Host(`${APP_DOMAIN}`) && PathPrefix(`/default`)",
+    "traefik.http.services.{{RUNTIPI_APP_ID}}.loadbalancer.server.port": "3000",
+    "traefik.http.routers.{{RUNTIPI_APP_ID}}.rule": "Host(`${APP_DOMAIN}`) && !PathPrefix(`/default`)",
+    "traefik.http.routers.{{RUNTIPI_APP_ID}}.entrypoints": "websecure",
+    "traefik.http.routers.{{RUNTIPI_APP_ID}}.tls.certresolver": "myresolver",
+
+    "traefik.http.routers.{{RUNTIPI_APP_ID}}-minio-insecure.rule": "Host(`${APP_DOMAIN}`) && (Path(`/default`) || PathPrefix(`/default/`))",
+    "traefik.http.routers.{{RUNTIPI_APP_ID}}-minio-insecure.service": "{{RUNTIPI_APP_ID}}-minio",
     "traefik.http.routers.{{RUNTIPI_APP_ID}}-minio-insecure.entrypoints": "web",
     "traefik.http.routers.{{RUNTIPI_APP_ID}}-minio-insecure.middlewares": "{{RUNTIPI_APP_ID}}-minio-redirect",
     "traefik.http.middlewares.{{RUNTIPI_APP_ID}}-minio-redirect.redirectscheme.scheme": "https"
