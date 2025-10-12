@@ -43,7 +43,7 @@
         }
       ],
       "healthCheck": {
-        "test": "curl --fail ${APP_PROTOCOL}://localhost:9000/minio/health/live || exit 1",
+        "test": "curl --fail http://localhost:9000/minio/health/live || exit 1",
         "interval": "10s",
         "timeout": "5s",
         "retries": 5,
