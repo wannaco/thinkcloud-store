@@ -31,7 +31,8 @@
       "environment": {
         "PORT": 9000,
         "MINIO_ROOT_USER": "${MINIO_ROOT_USER}",
-        "MINIO_ROOT_PASSWORD": "${MINIO_ROOT_PASSWORD}"
+        "MINIO_ROOT_PASSWORD": "${MINIO_ROOT_PASSWORD}",
+        "MINIO_SERVER_URL": "${APP_PROTOCOL}://${APP_DOMAIN}/default"
       },
       "internalPort": 9000,
       "addToMainNetwork": true,
