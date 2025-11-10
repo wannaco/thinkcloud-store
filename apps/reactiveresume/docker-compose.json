@@ -58,6 +58,7 @@
         "traefik.http.routers.{{RUNTIPI_APP_ID}}-minio.rule": "Host(`${APP_DOMAIN}`) && (PathPrefix(`/default`) || PathPrefix(`/minio`))",
         "traefik.http.routers.{{RUNTIPI_APP_ID}}-minio.entrypoints": "websecure",
         "traefik.http.routers.{{RUNTIPI_APP_ID}}-minio.tls.certresolver": "myresolver",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-minio.service": "{{RUNTIPI_APP_ID}}-minio",
         "traefik.http.routers.{{RUNTIPI_APP_ID}}-minio.priority": "10000",
         "traefik.http.routers.{{RUNTIPI_APP_ID}}-minio-insecure.rule": "Host(`${APP_DOMAIN}`) && (PathPrefix(`/default`) || PathPrefix(`/minio`))",
         "traefik.http.routers.{{RUNTIPI_APP_ID}}-minio-insecure.entrypoints": "web",
@@ -118,9 +119,11 @@
       "isMain": true,
       "labels": {
         "traefik.enable": "true",
+        "traefik.docker.network": "runtipi_tipi_main_network",
         "traefik.http.routers.{{RUNTIPI_APP_ID}}.rule": "Host(`${APP_DOMAIN}`) && !PathPrefix(`/default`) && !PathPrefix(`/minio`)",
         "traefik.http.routers.{{RUNTIPI_APP_ID}}.entrypoints": "websecure",
         "traefik.http.routers.{{RUNTIPI_APP_ID}}.tls.certresolver": "myresolver",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}.service": "{{RUNTIPI_APP_ID}}",
         "traefik.http.services.{{RUNTIPI_APP_ID}}.loadbalancer.server.port": "3000"
       }
     }
