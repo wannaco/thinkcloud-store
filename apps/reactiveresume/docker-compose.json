@@ -114,17 +114,19 @@
         "app": { "condition": "service_started" },
         "minio": { "condition": "service_started" }
       },
-      "command": [
-        "sh",
-        "-c",
-        "cat > /etc/nginx/conf.d/default.conf <<'EOF'\\nserver {\\n  listen 80;\\n  server_name _ ;\\n\\n  # MinIO health and console paths\\n  location /minio/ {\\n    proxy_set_header Host \\\\\\\\$host;\\n    proxy_pass http://minio:9000/minio/;\\n  }\\n\\n  # MinIO bucket path prefix\\n  location /default/ {\\n    proxy_set_header Host \\\\\\\\$host;\\n    proxy_pass http://minio:9000/default/;\\n  }\\n\\n  # Everything else to Reactive Resume app\\n  location / {\\n    proxy_set_header Host \\\\\\\\$host;\\n    proxy_set_header X-Forwarded-For \\\\\\\\\\\\\\\\$proxy_add_x_forwarded_for;\\n    proxy_set_header X-Forwarded-Proto \\\\\\\\\\\\\\\\$scheme;\\n    proxy_pass http://app:3000/;\\n  }\\n}\\n'EOF'\\n\\nnginx -g 'daemon off;'"
+      "volumes": [
+        {
+          "hostPath": "./nginx.conf",
+          "containerPath": "/etc/nginx/conf.d/default.conf",
+          "readOnly": true
+        }
       ]
     }
   ],
   "extraLabels": {
     "traefik.enable": "true",
     "traefik.http.services.{{RUNTIPI_APP_ID}}.loadbalancer.server.port": "80",
-    "traefik.http.routers.{{RUNTIPI_APP_ID}}.rule":  "Host(`{{APP_DOMAIN}}`)",
+    "traefik.http.routers.{{RUNTIPI_APP_ID}}.rule": "Host(`${APP_DOMAIN}`)",
     "traefik.http.routers.{{RUNTIPI_APP_ID}}.entrypoints": "websecure",
     "traefik.http.routers.{{RUNTIPI_APP_ID}}.tls.certresolver": "myresolver"
   }
