@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "postiz",
-      "image": "ghcr.io/gitroomhq/postiz-app:v2.6.0",
+      "image": "ghcr.io/gitroomhq/postiz-app:v2.9.0",
       "isMain": true,
       "internalPort": 5000,
       "environment": {
