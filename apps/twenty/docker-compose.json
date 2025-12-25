@@ -3,7 +3,7 @@
     "services": [
         {
             "name": "twenty",
-            "image": "twentycrm/twenty:latest",
+            "image": "twentycrm/twenty:v1.12.0",
             "internalPort": 3000,
             "isMain": true,
             "volumes": [
