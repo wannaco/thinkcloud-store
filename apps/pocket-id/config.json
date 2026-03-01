@@ -23,7 +23,7 @@
   "dynamic_config": true,
   "form_fields": [
     {
-      "encryption_key": "ENCRYPTION_KEY",
+      "env_variable": "ENCRYPTION_KEY",
       "label": "Encryption Key",
       "max": 1024,
       "min": 1,
