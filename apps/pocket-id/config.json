@@ -22,7 +22,7 @@
   "updated_at": 1753142747779,
   "dynamic_config": true,
   "form_fields": [
-     {
+    {
       "encryption_key": "ENCRYPTION_KEY",
       "label": "Encryption Key",
       "max": 1024,
