@@ -8,9 +8,9 @@
   "categories": [
     "utilities"
   ],
-  "description": "Twenty is a modern, open-source CRM alternative to Salesforce—fully customizable, affordable, and powered by the community.",
+  "description": "Twenty is a modern, open-source CRM alternative to Salesforce\u2014fully customizable, affordable, and powered by the community.",
   "tipi_version": 24,
-  "version": "1.16.0",
+  "version": "v1.19.0",
   "source": "https://github.com/twentyhq/twenty",
   "exposable": true,
   "supported_architectures": [
@@ -18,7 +18,7 @@
     "amd64"
   ],
   "created_at": 1745082405284,
-  "updated_at": 1745674974072,
+  "updated_at": 1774400491087,
   "dynamic_config": true,
   "form_fields": [
     {

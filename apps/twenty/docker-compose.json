@@ -3,7 +3,7 @@
     "services": [
         {
             "name": "twenty",
-            "image": "twentycrm/twenty:latest",
+            "image": "twentycrm/twentyv1.19.0",
             "internalPort": 3000,
             "isMain": true,
             "volumes": [
@@ -28,7 +28,7 @@
         },
         {
             "name": "worker",
-            "image": "twentycrm/twenty:latest",
+            "image": "twentycrm/twentyv1.19.0",
             "volumes": [
                 {
                     "hostPath": "${APP_DATA_DIR}/server-local-data",
@@ -47,7 +47,7 @@
         },
         {
             "name": "db",
-            "image": "postgres:16",
+            "image": "postgresv1.19.0",
             "volumes": [
                 {
                     "hostPath": "${APP_DATA_DIR}/db-data",

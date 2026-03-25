@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "postgres",
-      "image": "postgres:16-alpine",
+      "image": "postgresv5.0.14",
       "environment": {
         "POSTGRES_DB": "postgres",
         "POSTGRES_USER": "postgres",
@@ -26,7 +26,7 @@
     },
     {
       "name": "minio",
-      "image": "minio/minio:latest",
+      "image": "minio/miniov5.0.14",
       "command": "server /data",
       "environment": {
         "PORT": 9000,
@@ -68,7 +68,7 @@
     },
     {
       "name": "chrome",
-      "image": "ghcr.io/browserless/chromium:v2.18.0",
+      "image": "ghcr.io/browserless/chromiumv5.0.14",
       "environment": {
         "TIMEOUT": 10000,
         "CONCURRENT": 10,
@@ -82,7 +82,7 @@
     },
     {
       "name": "app",
-      "image": "amruthpillai/reactive-resume:latest",
+      "image": "amruthpillai/reactive-resumev5.0.14",
       "environment": {
         "PORT": 3000,
         "NODE_ENV": "production",
