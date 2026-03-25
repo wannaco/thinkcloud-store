@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "postiz",
-      "image": "ghcr.io/gitroomhq/postiz-app:v2.10.1",
+      "image": "ghcr.io/gitroomhq/postiz-app:v2.21.0",
       "isMain": true,
       "internalPort": 5000,
       "environment": {
@@ -13,6 +13,7 @@
         "JWT_SECRET": "${JWT_SECRET}",
         "DATABASE_URL": "postgresql://postiz-user:postiz-password@postiz-postgres:5432/postiz-db-local",
         "REDIS_URL": "redis://postiz-redis:6379",
+        "TEMPORAL_ADDRESS": "postiz-temporal:7233",
         "BACKEND_INTERNAL_URL": "http://postiz:3000",
         "IS_GENERAL": "true",
         "STORAGE_PROVIDER": "local",
@@ -41,12 +42,15 @@
         },
         "postiz-redis": {
           "condition": "service_healthy"
+        },
+        "postiz-temporal": {
+          "condition": "service_started"
         }
       }
     },
     {
       "name": "postiz-postgres",
-      "image": "postgres:17-alpine",
+      "image": "postgres:v2.21.0",
       "environment": {
         "POSTGRES_PASSWORD": "postiz-password",
         "POSTGRES_USER": "postiz-user",
@@ -70,7 +74,7 @@
     },
     {
       "name": "postiz-redis",
-      "image": "redis:7.2",
+      "image": "redis:v2.21.0",
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/postiz-redis-data",
@@ -85,6 +89,17 @@
         "interval": "10s",
         "timeout": "3s",
         "retries": 3
+      }
+    },
+    {
+      "name": "postiz-temporal",
+      "image": "temporalio/server:latest",
+      "environment": {
+        "DB": "postgresql",
+        "DB_PORT": "5432",
+        "POSTGRES_USER": "postiz-user",
+        "POSTGRES_PWD": "postiz-password",
+        "POSTGRES_SEEDS": "postiz-postgres"
       }
     }
   ]
