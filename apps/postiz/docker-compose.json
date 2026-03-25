@@ -93,13 +93,27 @@
     },
     {
       "name": "postiz-temporal",
-      "image": "temporalio/server:latest",
+      "image": "temporalio/auto-setup:1.28.1",
       "environment": {
         "DB": "postgresql",
         "DB_PORT": "5432",
-        "POSTGRES_USER": "postiz-user",
-        "POSTGRES_PWD": "postiz-password",
-        "POSTGRES_SEEDS": "postiz-postgres"
+        "POSTGRES_USER": "temporal",
+        "POSTGRES_PWD": "temporal",
+        "POSTGRES_SEEDS": "postiz-temporal-postgres",
+        "ENABLE_ES": "false"
+      },
+      "dependsOn": {
+        "postiz-temporal-postgres": {
+          "condition": "service_started"
+        }
+      }
+    },
+    {
+      "name": "postiz-temporal-postgres",
+      "image": "postgres:16-alpine",
+      "environment": {
+        "POSTGRES_USER": "temporal",
+        "POSTGRES_PASSWORD": "temporal"
       }
     }
   ]
