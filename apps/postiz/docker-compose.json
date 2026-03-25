@@ -50,7 +50,7 @@
     },
     {
       "name": "postiz-postgres",
-      "image": "postgres:v2.21.0",
+      "image": "postgres:15-alpine",
       "environment": {
         "POSTGRES_PASSWORD": "postiz-password",
         "POSTGRES_USER": "postiz-user",
@@ -74,7 +74,7 @@
     },
     {
       "name": "postiz-redis",
-      "image": "redis:v2.21.0",
+      "image": "redis:7-alpine",
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/postiz-redis-data",
