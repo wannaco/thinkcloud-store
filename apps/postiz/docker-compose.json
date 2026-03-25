@@ -95,13 +95,23 @@
       "name": "postiz-temporal",
       "image": "temporalio/auto-setup:1.28.1",
       "environment": {
-        "DB": "postgresql",
+        "DB": "postgres12",
         "DB_PORT": "5432",
         "POSTGRES_USER": "temporal",
         "POSTGRES_PWD": "temporal",
         "POSTGRES_SEEDS": "postiz-temporal-postgres",
-        "ENABLE_ES": "false"
+        "ENABLE_ES": "false",
+        "DYNAMIC_CONFIG_FILE_PATH": "config/dynamicconfig/development-sql.yaml"
       },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/temporal-dynamicconfig",
+          "containerPath": "/etc/temporal/config/dynamicconfig",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        }
+      ],
       "dependsOn": {
         "postiz-temporal-postgres": {
           "condition": "service_started"
